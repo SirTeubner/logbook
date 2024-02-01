@@ -39,7 +39,11 @@ public class XmlRepository : IRepository
 
         // TODO:
         // - Objekt Entry erstellen
-        // - LIste zurückgeben
+        // - Liste zurückgeben
+
+        throw new NotImplementedException();
+
+        // return entries
     }
 
     public bool Save()
