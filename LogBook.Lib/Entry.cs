@@ -2,6 +2,7 @@
 
 public class Entry
 {
+
     /// <summary>
     /// Creates an entry for the log book
     /// </summary>
