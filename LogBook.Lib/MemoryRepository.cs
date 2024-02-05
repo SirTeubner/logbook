@@ -8,7 +8,7 @@ namespace LogBook.Lib;
 
 public class MemoryRepository : IRepository
 {
-    List<Entry> list = new List<Entry>();
+    readonly List<Entry> list = new();
 
     public bool Add(Entry entry)
     {
