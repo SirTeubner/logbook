@@ -14,6 +14,13 @@ public interface IRepository
 
     bool Update(Entry entry);
 
+    /// <summary>
+    /// Search for an entry
+    /// </summary>
+    /// <param name="id">the id to search for</param>
+    /// <returns>Entry or null</returns>
+    Entry? Find(string id);
+
     bool Save();
 
     List<Entry> GetAll();
