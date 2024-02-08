@@ -23,6 +23,11 @@ public class CsvRepository : IRepository
         throw new NotImplementedException();
     }
 
+    public Entry? Find(string id)
+    {
+        throw new NotImplementedException();
+    }
+
     public List<Entry> GetAll()
     {
         throw new NotImplementedException();
