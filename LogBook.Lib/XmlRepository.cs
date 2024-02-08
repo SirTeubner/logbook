@@ -71,6 +71,27 @@ public class XmlRepository : IRepository
         return this.Save();
     }
 
+    public Entry? Find(string id)
+    {
+        var item = (from entry in _rootElement.Descendants("etnry")
+                    where (string)entry.Attribute("id") == id
+                    select new Entry(
+                          Convert.ToDateTime(entry.Attribute("start").Value),
+                          Convert.ToDateTime(entry.Attribute("end").Value),
+                          (int)entry.Attribute("startkm"),
+                          (int)entry.Attribute("endkm"),
+                          entry.Attribute("numberplate").Value,
+                          entry.Attribute("from").Value,
+                          entry.Attribute("to").Value,
+                          entry.Attribute("id").Value
+                          )
+                    {
+                        Description = entry.Value
+                    }).FirstOrDefault();
+
+        return item;
+    }
+
     public List<Entry> GetAll()
     {
         var entries = from entry in this._rootElement.Descendants("entry")
