@@ -64,16 +64,34 @@ public partial class MainViewModel(IRepository repository) : ObservableObject //
     [RelayCommand]
     void Add()
     {
+        /*
         Lib.Entry entrySaalfelden = new(DateTime.Now.AddDays(3), DateTime.Now.AddDays(3).AddMinutes(20), 25500, 25514, "ZE-XY123", "Zell am See", "Saalfelden")
         {
             Description = "Fahrt nach Saalfelden"
         };
+        */
 
-        var result = _repository.Add(entrySaalfelden);
+        Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.Numberplate, this.From, this.To);
+        
+        if(this.Description.Length > 0)
+        {
+            entry.Description = this.Description;
+        }
+
+
+        var result = _repository.Add(entry);
         if (result)
         {
-            this.Entries.Add(entrySaalfelden);
+            this.Entries.Add(entry);
+
+            this.Description = string.Empty;
+            this.From = string.Empty;
+            this.To = string.Empty;
+            this.StartKM = this.EndKM;
+            this.EndKM = 0;
         }
+
+
     }
 
 }

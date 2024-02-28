@@ -97,8 +97,13 @@
                     <Entry Text="{Binding From}"/>
                 </StackLayout>
                 <StackLayout Grid.Row="5" Grid.Column="1">
-                    <Label Text="Bis"/>
+                    <Label Text="Nach"/>
                     <Entry Text="{Binding To}"/>
+                </StackLayout>
+                
+                <!-- Button 6/0 -->
+                <StackLayout Grid.Row="6" Grid.ColumnSpan="2">
+                    <Button Text="Fahrt speichern" Command="{Binding AddCommand}"/>
                 </StackLayout>
 
             </Grid>
