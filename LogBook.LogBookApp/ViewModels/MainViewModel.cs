@@ -19,6 +19,9 @@ public partial class MainViewModel(IRepository repository) : ObservableObject //
     [ObservableProperty]
     ObservableCollection<Lib.Entry> _entries = [];
 
+    [ObservableProperty]
+    Lib.Entry? _selectedEntry = null;
+
 
     // Region verändert im Code nichts, man kann Region einklappen
     #region Properties 
@@ -30,7 +33,7 @@ public partial class MainViewModel(IRepository repository) : ObservableObject //
     DateTime _end = DateTime.Now;
 
     [ObservableProperty]
-    [NotifyCanExecuteChangedFor(nameof(AddCommand))]
+    [NotifyCanExecuteChangedFor(nameof(AddCommand))] // Durch diese Zeile wird der Button deaktiviert
     string _description = string.Empty;
 
     [ObservableProperty]

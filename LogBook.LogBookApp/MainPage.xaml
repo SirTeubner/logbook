@@ -14,7 +14,7 @@
 
     <ScrollView>
         <!-- erstes Grid (Hauptgrid) -->
-        <Grid RowDefinitions="180, Auto, Auto" Margin="10">
+        <Grid RowDefinitions="180, Auto, Auto" ColumnDefinitions="*,*" Margin="10">
 
             <!--
            <Label Text="{Binding Header}"
@@ -31,7 +31,7 @@
                     <Label FontSize="Caption" FontAttributes="Bold" Grid.Column="3" Text="Nach" Padding="5"/>
                 </Grid>
                 <!-- Data -->
-                <CollectionView Grid.Row="1" ItemsSource="{Binding Entries}">
+                <CollectionView Grid.Row="1" SelectionMode="Single" SelectedItem="{Binding SelectedEntry}" ItemsSource="{Binding Entries}">
                     <CollectionView.EmptyView>
                         <Label Padding="10" Text="Es wurde keine Fahrt hinzugefügt."/>
                     </CollectionView.EmptyView>
@@ -74,13 +74,13 @@
                     <Label Text="Beschreibung"/>
                     <Entry Text="{Binding Description}"/>
                 </StackLayout>
-                
+
                 <!-- Number plate 3/0 -->
                 <StackLayout Grid.Row="3" Grid.Column="0">
                     <Label Text="Kennzeichen"/>
                     <Entry Text="{Binding Numberplate}"/>
                 </StackLayout>
-                
+
                 <!-- Start km 4/0, End km 4/1 -->
                 <StackLayout Grid.Row="4">
                     <Label Text="Start-KM"/>
@@ -90,7 +90,7 @@
                     <Label Text="End-KM"/>
                     <Entry Text="{Binding EndKM}"/>
                 </StackLayout>
-                
+
                 <!-- From 5/0, To 5/1 -->
                 <StackLayout Grid.Row="5">
                     <Label Text="Von"/>
@@ -100,7 +100,7 @@
                     <Label Text="Nach"/>
                     <Entry Text="{Binding To}"/>
                 </StackLayout>
-                
+
                 <!-- Button 6/0 -->
                 <StackLayout Grid.Row="6" Grid.ColumnSpan="2">
                     <Button Text="Fahrt speichern" Command="{Binding AddCommand}"/>
@@ -109,6 +109,12 @@
             </Grid>
             <!-- Ende Eingabe -->
 
+            
+            <!-- DETAILS -->
+            
+            
+            
+            
         </Grid>
     </ScrollView>
 
