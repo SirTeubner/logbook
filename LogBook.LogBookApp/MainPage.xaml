@@ -118,13 +118,21 @@
 
             
             <!-- DETAILS -->
-            <Grid Padding="10" IsVisible="{Binding SelectedEntry}">
-                
+            <Grid Padding="10" Grid.RowSpan="3" Grid.Column="1" IsVisible="{Binding SelectedEntry, Converter={StaticResource IsNullConverter}}">
+                <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Bitte wählen Sie eine Fahrt aus!"/>
             </Grid>
-            
-            
-            
-            
+            <Grid Padding="10" Grid.RowSpan="3" Grid.Column="1" IsVisible="{Binding SelectedEntry, Converter={StaticResource IsNotNullConverter}}">
+                <StackLayout>
+                    <Label FontSize="Large" TextColor="{StaticResource Primary}"
+                           Text="{Binding SelectedEntry.Description}"/>
+                    <!-- TargetNullValue='Keine Beschreibung vorhanden.' Findet statt, wenn Descripiton Null ist, bei unserem Projekt unmöglich, da Description immer string.empty ist.-->
+
+                </StackLayout>
+            </Grid>
+
+
+
+
         </Grid>
     </ScrollView>
 
