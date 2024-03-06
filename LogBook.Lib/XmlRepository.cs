@@ -62,7 +62,7 @@ public class XmlRepository : IRepository
     
     public bool Delete(Entry entry)
     {
-        var itemsDel = from e in _rootElement.Descendants("etnry")
+        var itemsDel = from e in _rootElement.Descendants("entry")
                        where (string)e.Attribute("id") == entry.Id
                        select e;
 
@@ -73,7 +73,7 @@ public class XmlRepository : IRepository
 
     public Entry? Find(string id)
     {
-        var item = (from entry in _rootElement.Descendants("etnry")
+        var item = (from entry in _rootElement.Descendants("entry")
                     where (string)entry.Attribute("id") == id
                     select new Entry(
                           Convert.ToDateTime(entry.Attribute("start").Value),
