@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogBook.LogBookApp.ViewModels;
+namespace LogBook.LogBookCore.ViewModels;
 
 public partial class MainViewModel(IRepository repository) : ObservableObject //Primärer Konstruktor
 {
