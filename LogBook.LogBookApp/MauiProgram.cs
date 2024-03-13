@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using LogBook.Lib;
 using LogBook.LogBookApp.Pages;
+using LogBook.LogBookCore.Services;
 using LogBook.LogBookCore.ViewModels;
 using Microsoft.Extensions.Logging;
 
