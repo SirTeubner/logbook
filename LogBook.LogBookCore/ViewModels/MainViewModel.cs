@@ -16,6 +16,7 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
     public string Header => "Fahrtenbuch";
     IRepository _repository = repository;
     IAlertService _alertService = alertService;
+    private bool _isLoaded = false;
 
 
     [ObservableProperty]
@@ -88,12 +89,19 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
     [RelayCommand]
     void LoadData()
     {
-        var entries = _repository.GetAll();
+        // naja: Entier.Clear();
 
-        foreach(var entry in entries)
+        if (!_isLoaded)
         {
-            Entries.Add(entry);
-        }
+            var entries = _repository.GetAll();
+
+            foreach (var entry in entries)
+            {
+                Entries.Add(entry);
+            }
+
+            _isLoaded = true;
+        }        
     }
 
     private bool CanAdd => this.Description.Length > 0;

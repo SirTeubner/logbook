@@ -11,11 +11,10 @@ public class AlertService : IAlertService
 {
     public async void ShowAlert(string title, string message)
     {
-        Application.Current.MainPage.Dispatcher.Dispatch(async()
-            {
-            await ShowAlertAsync(title, message)
-             }
-        );
+        Application.Current.MainPage.Dispatcher.Dispatch(async () =>
+        {
+                await ShowAlertAsync(title, message);
+        });
     }
 
     public Task ShowAlertAsync(string title, string message)

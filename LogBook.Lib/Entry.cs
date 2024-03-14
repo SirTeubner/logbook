@@ -16,6 +16,9 @@ public class Entry
 
     public int EndKM { get; set; }
 
+    // => bedeutet das Selbe wie Get
+    public int Distance => EndKM - StartKM;
+
     public string NumberPlate { get; set; }
 
     public string From { get; set; }

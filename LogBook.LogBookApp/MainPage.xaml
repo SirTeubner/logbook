@@ -132,7 +132,8 @@
                     <!-- TargetNullValue='Keine Beschreibung vorhanden.' Findet statt, wenn Descripiton Null ist, bei unserem Projekt unmöglich, da Description immer string.empty ist.-->
 
                     <Label>
-                        <Label.Text> <!-- Mit MultiBinding kann man mehrere Werte an ein Label binden. -->
+                        <Label.Text>
+                            <!-- Mit MultiBinding kann man mehrere Werte an ein Label binden. -->
                             <MultiBinding StringFormat="von {0} nach {1}" TargetNullValue="Bitte wählen sie eine Fahrt aus.">
                                 <Binding Path="SelectedEntry.From" />
                                 <Binding Path="SelectedEntry.To" />
@@ -151,11 +152,9 @@
                 </StackLayout>
 
             </Grid>
-
-
-
-
+            
         </Grid>
+        
     </ScrollView>
 
 </ContentPage>
