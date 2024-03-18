@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using LogBook.Lib;
+using LogBook.LogBookCore.Messages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +18,15 @@ public partial class ReportViewModel : ObservableObject
     public ReportViewModel(IRepository repository)
     {
         _repository = repository;
+
+        WeakReferenceMessenger.Default.Register<AddMessage>(this, (r, m) =>
+        {
+            // m.Value: unser Entry-Objekt
+            System.Diagnostics.Debug.WriteLine(m.Value);
+
+            // add to list
+            this.Entries.Add(m.Value);
+        });
     }
 
     

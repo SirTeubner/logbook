@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using LogBook.Lib;
+using LogBook.LogBookCore.Messages;
 using LogBook.LogBookCore.Services;
 using System;
 using System.Collections.Generic;
@@ -128,12 +130,13 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
         if (result)
         {
             this.Entries.Add(entry);
-
             this.Description = string.Empty;
             this.From = string.Empty;
             this.To = string.Empty;
             this.StartKM = this.EndKM;
             this.EndKM = 0;
+
+            WeakReferenceMessenger.Default.Send(new AddMessage(entry));
         }
 
 
