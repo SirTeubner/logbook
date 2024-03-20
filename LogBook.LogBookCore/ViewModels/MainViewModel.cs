@@ -59,6 +59,29 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
     #endregion
 
 
+    void ToggleFavorite(Lib.Entry entry)
+    {
+        entry.Favorite = !entry.Favorite; // Wenn der entry true ist wird er false und wenn er false ist wird er true
+
+        var result = _repository.Update(entry);
+
+        if (result)
+        {
+            int pos = this.Entries.IndexOf(entry);
+
+            if (pos != -1)
+            {
+                this.Entries[pos] = entry;
+                _alertService.ShowAlert("Erfolg", "Der Status wurde verändert.");
+            }
+        }
+        else
+        {
+            _alertService.ShowAlert("Fehler", "Der Status konnte nicht verändert werden.");
+        }
+    }
+
+
     [RelayCommand]
     void Delete(Lib.Entry entry)
     {
@@ -118,7 +141,7 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
         };
         */
 
-        Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.Numberplate, this.From, this.To);
+        Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.Numberplate, this.From, this.To, false);
         
         if(this.Description.Length > 0)
         {
