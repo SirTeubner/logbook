@@ -1,11 +1,11 @@
 ﻿namespace LogBook.Lib;
 
+/// <summary>
+/// Creates an entry for the log book
+/// </summary>
 public class Entry
 {
-
-    /// <summary>
-    /// Creates an entry for the log book
-    /// </summary>
+    public bool Favorite { get; set; } = false;
     public string Description { get; set; } = string.Empty;
 
     public DateTime Start { get; set; }
@@ -29,7 +29,7 @@ public class Entry
     /// Id for an entry
     /// </summary>
     public string Id { get; set; }
-    public Entry(DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to, string id)
+    public Entry(DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to, bool favorite, string id)
     {
         this.Id = id;
         this.Start = start;
@@ -39,10 +39,11 @@ public class Entry
         this.NumberPlate = numberPlate;
         this.From = from;
         this.To = to;
+        this.Favorite = favorite;
 
     }
 
-    public Entry(DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to)
+    public Entry(DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to, bool favorite)
     {
         this.Id = Guid.NewGuid().ToString();
         this.Start = start;
@@ -52,6 +53,7 @@ public class Entry
         this.NumberPlate = numberPlate;
         this.From = from;
         this.To = to;
+        this.Favorite = favorite;
 
     }
 
