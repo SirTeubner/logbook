@@ -59,6 +59,7 @@ public partial class MainViewModel(IRepository repository, IAlertService alertSe
     #endregion
 
 
+    [RelayCommand]
     void ToggleFavorite(Lib.Entry entry)
     {
         entry.Favorite = !entry.Favorite; // Wenn der entry true ist wird er false und wenn er false ist wird er true

@@ -52,7 +52,14 @@
                                 <Image VerticalOptions="Center" HorizontalOptions="Center"
                                        Source="star.png" IsVisible="{Binding Favorite}" HeightRequest="15" >
                                     <Image.GestureRecognizers>
-                                        <TapGestureRecognizer />
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=ToggleFavoriteCommand}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <Image VerticalOptions="Center" HorizontalOptions="Center"
+                                        Source="star_empty.png" IsVisible="{Binding Favorite, Converter={StaticResource InvertedBoolConverter}}" HeightRequest="15" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=ToggleFavoriteCommand}" CommandParameter="{Binding .}" />
                                     </Image.GestureRecognizers>
                                 </Image>
 

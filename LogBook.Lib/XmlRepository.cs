@@ -133,7 +133,7 @@ public class XmlRepository : IRepository
 
     public bool Update(Entry entry)
     {
-        var item = (from e in _rootElement.Descendants("etnry")
+        var item = (from e in _rootElement.Descendants("entry")
                        where (string)e.Attribute("id") == entry.Id
                        select e).FirstOrDefault();
 
