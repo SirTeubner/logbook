@@ -8,6 +8,10 @@ namespace LogBook.Lib;
 
 public class CsvRepository : IRepository
 {
+    // title, money
+    // test, 23.22
+    // Probe, 14.11
+
     public CsvRepository(string path)
     {
 
