@@ -32,14 +32,16 @@ namespace LogBook.LogBookApp
 
             string path = FileSystem.Current.AppDataDirectory;
             // string filename = "data.xml";
-            string filename = "data.sqlite";
+            // string filename = "data.sqlite";
+            string filename = "data.csv";
 
             string fullpath = System.IO.Path.Combine(path, filename);
 
             System.Diagnostics.Debug.WriteLine(fullpath);
 
             // builder.Services.AddSingleton<IRepository>(new XmlRepository(fullpath));
-            builder.Services.AddSingleton<IRepository>(new SqliteRepository(fullpath));
+            // builder.Services.AddSingleton<IRepository>(new SqliteRepository(fullpath));
+            builder.Services.AddSingleton<IRepository>(new CsvRepository(fullpath));
 
             builder.Services.AddSingleton<IAlertService, AlertService>();
 
